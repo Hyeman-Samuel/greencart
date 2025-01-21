@@ -22,7 +22,7 @@ export function configureSwagger(app: ExpressApplication,options:RoutingControll
                 }
             },
         },
-        info: { title: 'EnergyX', version: '0.0.1' },
+        info: { title: 'GreenCart', version: '0.0.1' },
     });
     app.use("/swagger",swaggerUiExpress.serve,swaggerUiExpress.setup(spec));
 }
