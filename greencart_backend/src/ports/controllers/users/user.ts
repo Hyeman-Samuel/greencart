@@ -25,8 +25,7 @@ export class UserController {
 
         input.password = await bcrypt.hashSync(input.password, 10);
         let response = await this.userService.createUser({ ...input });
-
-        return res.status(201).json({ response })
+        return res.status(201).json({ user: response,token: await this.userService.createUserToken(response) })
     }
 
     @Post('/login')
