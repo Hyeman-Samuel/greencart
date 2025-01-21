@@ -1,0 +1,37 @@
+{
+  "name": "project_8_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "yarn build && node dist/index.js",
+    "start:dev": "nodemon --watch src/**/**.ts --exec ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.7",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "routing-controllers": "^0.10.4",
+    "routing-controllers-openapi": "^4.0.0",
+    "class-transformer": "^0.5.1",
+    "cors": "^2.8.5",
+    "typedi": "^0.10.0",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.4.5",
+    "class-validator": "^0.14.1",
+    "class-validator-jsonschema": "^5.0.1",
+    "swagger-ui-express": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "axios": "^1.7.7"
+  }
+}
