@@ -3,7 +3,7 @@ import { FilterQuery, Types } from 'mongoose';
 
 import { IListProduct, ListProduct } from "./listProduct";
 
-@Service("list_product.store")
+@Service("listProduct.store")
 export class ListProductStore{
     
     async get(filter:FilterQuery<IListProduct>):Promise<IListProduct|null>{
