@@ -32,20 +32,21 @@ dependencies:
   url_launcher: 6.3.1
 
 dev_dependencies:
-  auto_route_generator: 9.3.1
-  build_runner: 2.4.14
-  custom_lint: 0.7.1
+  auto_route_generator: 9.0.0
+  build_runner: 2.4.13
+  custom_lint: 0.7.0
+  flutter_flavorizr: 2.2.3
   flutter_gen_runner: 5.8.0
   flutter_launcher_icons: 0.14.3
   flutter_lints: 5.0.0
   flutter_native_splash: 2.4.4
   flutter_test:
     sdk: flutter
-  freezed: 2.5.8
-  json_serializable: 6.9.3
-  retrofit_generator: 9.1.7
-  riverpod_generator: 2.6.4
-  riverpod_lint: 2.6.4
+  freezed: 2.5.7
+  json_serializable: 6.9.0
+  retrofit_generator: 9.1.5
+  riverpod_generator: 2.6.3
+  riverpod_lint: 2.6.3
   sentry_dart_plugin: 2.3.0
 
 flutter:
@@ -57,13 +58,12 @@ flutter:
     # - assets/icons/
 
 flutter_gen:
-  output: lib/core/assets_gen
+  output: lib/src/core/flutter_gen
   assets:
     outputs:
       class_name: GreenCartAssets
       package_parameter_enabled: false
       directory_path_enabled: true
-
   integrations:
     flutter_svg: true
 
@@ -90,15 +90,15 @@ flutter_native_splash:
   color_dark_ios: "#121212"
   color_web: "#ffffff"
   color_dark_web: "#121212"
-  # image: "assets/common/app-icon-transparent.png"
+  image: "assets/images/splash_logo.png"
 
 # Sentry Dart Plugin configuration
 sentry:
   upload_debug_symbols: true
   upload_source_maps: true
   upload_sources: true
-  # project: 
-  # org: 
+  project: greencart
+  org: greencart-project-dc
   wait_for_processing: true
   log_level: error # possible values: trace, debug, info, warn, error
   commits: auto
