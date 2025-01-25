@@ -43,3 +43,16 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+*.*.dart
+.fvmrc
+.fvm
+coverage
+coverage.html
+devtools_options.yaml
+
+# Ignore .env files
+*.env
+.vscode/settings.json
+build84440b14
+builddf40b1d3
