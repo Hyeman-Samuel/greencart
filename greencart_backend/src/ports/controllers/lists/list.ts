@@ -66,7 +66,7 @@ export class ListController {
     @OpenAPI({ security: [{ bearerAuth: [] }] })
     @UseBefore(AuthMiddleware)
     async remove(@Param("id") list_id: string,@Body() input: ListProductModel,@Req() req: any, @Res() res: Response){
-        await this.listProductService.addListProduct({
+        await this.listProductService.removeListProduct({
             list: new Types.ObjectId(list_id) ,
             product: new Types.ObjectId(input.product),
             quantity: input.quantity

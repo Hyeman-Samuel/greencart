@@ -1,9 +1,10 @@
-import { Get, JsonController, QueryParam, Res } from "routing-controllers";
+import { Get, JsonController, Post, QueryParam, Res } from "routing-controllers";
 import { Inject, Service } from "typedi";
 import { Response } from 'express'
 
 import { ProductService } from "../../../modules/products";
-import { Category } from '../../../modules/products/product';
+import { Category, Metric } from '../../../modules/products/product';
+import { SeededProducts } from '../../../modules/products/seeded_products';
 
 
 @JsonController('/products')
@@ -16,14 +17,17 @@ export class ProductController {
 
 
     // @Post('/')
-    // @OpenAPI({ security: [{ bearerAuth: [] }] })
-    // @UseBefore(AuthMiddleware)
-    // async create(@Body() input: ProductModel, @Res() res: Response,@Req() req: any, ){
-    //     if(await this.productService.findUnique({ title: input.title }))
-    //         throw new BadRequestError("product title already taken")
-
-    //     let product = await this.productService.createProduct({ ...input,user_id:req.user._id });
-    //     return res.status(201).json({ product })
+    // async load(@Res() res: Response ){
+    //     let products = SeededProducts.map(async x=> await this.productService.createProduct({
+    //         title:x.NAME,
+    //         type:x.TYPE,
+    //         carbon_emission:x.CARBON_EMISSIONS,
+    //         price:x.MARKET_PRICE,
+    //         category:x.CATEGORIES as Category,
+    //         quantity:x.QUANTITY !== ""? parseFloat(x.QUANTITY.toString()) : undefined,
+    //         metric:x.MERIC !== ""? x.MERIC as Metric : undefined
+    //     }))
+    //     return res.status(201).json({ products })
     // }
 
     @Get('/')
