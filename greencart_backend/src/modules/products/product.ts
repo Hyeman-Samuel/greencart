@@ -1,9 +1,18 @@
 
 import { Schema, Types, model } from 'mongoose';
 export enum Category{
-    Beverages="Beverages"
+    Foodstuff="foodstuff",
+    Electronics="electronics",
+    Household="household",
+    PersonalCare="personal-care",
 }
 
+export enum Metric{
+    Kilograms="kilograms",
+    Centiliters="centiliters",
+    Mililiters="mililiters",
+    Grams="grams",
+}
 export interface IProduct {
     _id: Types.ObjectId
     title: string
@@ -11,6 +20,9 @@ export interface IProduct {
     carbon_emission: number
     category:Category
     price: number;
+
+    metric:Metric
+    quantity:number
 }
 
 const productSchema = new Schema<IProduct>({
@@ -19,6 +31,8 @@ const productSchema = new Schema<IProduct>({
     category: { type: String, required: true,enum:Category },
     carbon_emission: { type: Number, required: true },
     price: { type: Number, required: true },
+    metric: { type: String,enum:Metric },
+    quantity: { type: Number},
 });
 
 
