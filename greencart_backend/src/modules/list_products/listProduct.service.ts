@@ -27,7 +27,8 @@ export class ListProductService {
         let listProduct  = await this.listProductStore.get({product:partial.product,list:partial.list})
 
         if(!listProduct)return true
-        if (partial.quantity??1 < listProduct.quantity){
+        const remaining = listProduct.quantity - (partial.quantity??1)
+        if (remaining > 0){
             listProduct.quantity -= partial.quantity ??0
             await this.listProductStore.update(listProduct._id.toString(),listProduct)
         }else{
