@@ -1,4 +1,4 @@
-import { Get, JsonController, Res } from "routing-controllers";
+import { BadRequestError, Body, Get, JsonController, Post, QueryParam, Req, Res, UseBefore } from "routing-controllers";
 import { Service } from "typedi";
 import { Response } from 'express'
 import { Category } from '../../../modules/products/product';
@@ -16,7 +16,7 @@ export class CategoryController {
 
     @Get('/')
     async get(@Res() res: Response){
-        let categories = Object.values(Category) 
+        let categories = Object.keys(Category) 
         return res.json({ categories });
     }
 
