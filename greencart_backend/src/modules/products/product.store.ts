@@ -1,5 +1,5 @@
 import { Service } from "typedi";
-import { FilterQuery, Types } from 'mongoose';
+import { FilterQuery, RootFilterQuery, Types } from 'mongoose';
 
 import { IProduct, Product } from "./product";
 
@@ -10,8 +10,8 @@ export class ProductStore{
         return await Product.findOne(filter)
     }
 
-    async getAll(filter:FilterQuery<IProduct>):Promise<IProduct[]>{
-        return await Product.find(filter)
+    async getAll(filter:FilterQuery<IProduct>,_skip:number=0,_limit:number=15):Promise<IProduct[]>{
+        return await Product.find(filter).skip(_skip).limit(_limit)
     }
 
     async findById(id: string){
@@ -40,6 +40,10 @@ export class ProductStore{
         if(params.equ) query = query.where(params.equ.title).equals(params.equ.val)
         const result = await query.exec()
         return result[0]
+    }
+    async query(body:RootFilterQuery<IProduct>,_skip:number = 0,_limit:number = 15):Promise<IProduct[]>{
+        let result = Product.find(body).sort("carbon_emission").skip(_skip).limit(_limit).exec()
+        return result
     }
 
 }

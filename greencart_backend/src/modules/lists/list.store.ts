@@ -29,6 +29,11 @@ export class ListStore{
         return list
     }
 
+    async delete(_id:string):Promise<boolean>{
+        const list = await List.deleteOne({_id:new Types.ObjectId(_id)})
+        return list.acknowledged
+    }
+
     async getOneByAtLeastOneCondition(filters:FilterQuery<IList>[]):Promise<IList|null>{
         const list = await  List.findOne({$or:filters})
         return list

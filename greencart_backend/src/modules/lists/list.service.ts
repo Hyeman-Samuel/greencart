@@ -47,4 +47,9 @@ export class ListService {
         return list
     }
 
+    async deleteList(id:string): Promise<boolean> {
+        const list = await this.listStore.delete(id)
+        return list
+    }
+
 }
