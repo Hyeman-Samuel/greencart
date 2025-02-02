@@ -3,6 +3,7 @@ import { BadRequestError, NotFoundError } from "routing-controllers";
 
 import { ProductStore } from "./product.store";
 import { IProduct } from './product';
+import { RootFilterQuery } from "mongoose";
 
 
 
@@ -43,6 +44,10 @@ export class ProductService {
 
     async findProduct(filter: Partial<IProduct>): Promise<IProduct[]> {
         const product = await this.productStore.getAll(filter)
+        return product
+    }
+    async findProducts(filter: RootFilterQuery<IProduct>,offset:number,limit:number): Promise<IProduct[]> {
+        const product = await this.productStore.query(filter,offset,limit)
         return product
     }
 
