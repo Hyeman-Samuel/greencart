@@ -42,6 +42,15 @@ export class ListController {
     }
 
 
+    @Delete('/:id/delete')
+    @OpenAPI({ security: [{ bearerAuth: [] }] })
+    @UseBefore(AuthMiddleware)
+    async delete(@Param("id") list_id: string, @Res() res: Response){
+        let list = await this.listService.deleteList(list_id)
+        return res.json({ status:list });
+    }
+
+
     @Get('/:id')
     @OpenAPI({ security: [{ bearerAuth: [] }] })
     @UseBefore(AuthMiddleware)
