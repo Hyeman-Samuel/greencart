@@ -4,8 +4,9 @@ import { Response } from 'express'
 import { Types } from "mongoose";
 
 import { ProductService } from "../../../modules/products";
-import { Category } from '../../../modules/products/product';
-
+import { Category, Metric, Rating } from '../../../modules/products/product';
+import { SeededProducts } from '../../../modules/products/seeded_products';
+import slugify from "slugify/slugify";
 
 
 @JsonController('/products')
@@ -17,23 +18,26 @@ export class ProductController {
     ) { }
 
 
-    // @Post('/')
-    // async load(@Res() res: Response ){
-    //     let products = SeededProducts.map(async x=> await this.productService.createProduct({
-    //         title:x.NAME,
-    //         type:x.TYPE,
-    //         carbon_emission:x.CARBON_EMISSIONS,
-    //         price:x.MARKET_PRICE,
-    //         category:x.CATEGORIES as Category,
-    //         quantity:x.QUANTITY !== ""? parseFloat(x.QUANTITY.toString()) : undefined,
-    //         metric:x.MERIC !== ""? x.MERIC as Metric : undefined
-    //     }))
-    //     return res.status(201).json({ products })
-    // }
+    @Post('/')
+    async load(@Res() res: Response ){
+        let products = SeededProducts.map(async x=> await this.productService.createProduct({
+            title:x.NAME,
+            type:x.TYPE,
+            carbon_emission:x.CARBON_EMISSIONS,
+            price:x.MARKET_PRICE,
+            category:x.CATEGORIES as Category,
+            quantity:x.QUANTITY !== ""? parseFloat(x.QUANTITY.toString()) : undefined,
+            metric:x.METRIC
+            !== ""? x.METRIC as Metric : undefined,
+            rating:x.IMPACT_LEVEL_RATING as Rating,
+            thumbnail:x.THUMBNAIL
+        }))
+        return res.status(201).json({ products })
+    }
 
     @Get('/')
     async get(@Res() res: Response,@QueryParam("category") category: string,@QueryParam("offset") offset: number = 0,@QueryParam("limit") limit: number = 15){
-        let product = await this.productService.findProduct({ category: category as Category })
+        let product = await this.productService.findProduct({ category: slugify(category).toLowerCase() as Category })
         return res.json({ product });
     }
 

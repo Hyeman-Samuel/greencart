@@ -1,191 +1,233 @@
 export const SeededProducts =[
-    {
-      "NAME": "Imported rice",
-      "TYPE": "Rice",
-      "CARBON_EMISSIONS": 150000,
-      "MARKET_PRICE": 96000,
-      "CATEGORIES": "foodstuff",
-      "QUANTITY": 50,
-      "MERIC": "kilograms"
-    },
-    {
-      "NAME": "Sachet water",
-      "TYPE": "Water",
-      "CARBON_EMISSIONS": 550,
-      "MARKET_PRICE": 500,
-      "CATEGORIES": "foodstuff",
-      "QUANTITY": 50,
-      "MERIC": "centiliters"
-    },
-    {
-      "NAME": "Canned corn",
-      "TYPE": "Corn",
-      "CARBON_EMISSIONS": 160,
-      "MARKET_PRICE": 5500,
-      "CATEGORIES": "electronics",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Local Nigerian Rice",
-      "TYPE": "Rice",
-      "CARBON_EMISSIONS": 150000,
-      "MARKET_PRICE": 156000,
-      "CATEGORIES": "electronics",
-      "QUANTITY": 100,
-      "MERIC": "kilograms"
-    },
-    {
-      "NAME": "Plastic Bottle Water",
-      "TYPE": "Water",
-      "CARBON_EMISSIONS": 82.8,
-      "MARKET_PRICE": 200,
-      "CATEGORIES": "foodstuff",
-      "QUANTITY": 500,
-      "MERIC": "mililiters"
-    },
-    {
-      "NAME": "Fresh Corn",
-      "TYPE": "Corn",
-      "CARBON_EMISSIONS": 85,
-      "MARKET_PRICE": 460,
-      "CATEGORIES": "household",
-      "QUANTITY": 1,
-      "MERIC": "kilograms"
-    },
-    {
-      "NAME": "Aluminum foil for wrapping food",
-      "TYPE": "Aluminium",
-      "CARBON_EMISSIONS": 3180,
-      "MARKET_PRICE": 2646,
-      "CATEGORIES": "household",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Shopping Tote bags",
-      "TYPE": "Cloth",
-      "CARBON_EMISSIONS": 175,
-      "MARKET_PRICE": 1500,
-      "CATEGORIES": "household",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Plastic shopping bags (Nylons)",
-      "TYPE": "Nylon",
-      "CARBON_EMISSIONS": 275,
-      "MARKET_PRICE": 200,
-      "CATEGORIES": "household",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Single-use batteries",
-      "TYPE": "Battery",
-      "CARBON_EMISSIONS": 20,
-      "MARKET_PRICE": 3000,
-      "CATEGORIES": "electronics",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Rechargeable batteries",
-      "TYPE": "Battery",
-      "CARBON_EMISSIONS": 0.4,
-      "MARKET_PRICE": 5500,
-      "CATEGORIES": "electronics",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "locally-produced Shea butter in jars",
-      "TYPE": "cream",
-      "CARBON_EMISSIONS": 90,
-      "MARKET_PRICE": 1200,
-      "CATEGORIES": "personal-care",
-      "QUANTITY": 180,
-      "MERIC": "grams"
-    },
-    {
-      "NAME": "plastic-packaged imported hair cream",
-      "TYPE": "cream",
-      "CARBON_EMISSIONS": 170,
-      "MARKET_PRICE": 2500,
-      "CATEGORIES": "personal-care",
-      "QUANTITY": 180,
-      "MERIC": "grams"
-    },
-    {
-      "NAME": "Solar-powered power banks (20,000mmAh)",
-      "TYPE": "Power-Banks",
-      "CARBON_EMISSIONS": 2300,
-      "MARKET_PRICE": 25900,
-      "CATEGORIES": "electronics",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Cheap power banks (20,000mmAh)",
-      "TYPE": "Power-Banks",
-      "CARBON_EMISSIONS": 4000,
-      "MARKET_PRICE": 16000,
-      "CATEGORIES": "electronics",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Disposable cleaning wipes",
-      "TYPE": "Wipes",
-      "CARBON_EMISSIONS": 2,
-      "MARKET_PRICE": 1200,
-      "CATEGORIES": "household",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Reusable Cleaning rags",
-      "TYPE": "Cloth",
-      "CARBON_EMISSIONS": 0.3,
-      "MARKET_PRICE": 500,
-      "CATEGORIES": "household",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Plastic comb",
-      "TYPE": "Comb",
-      "CARBON_EMISSIONS": 150,
-      "MARKET_PRICE": 700,
-      "CATEGORIES": "personal-care",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Wooden comb or brush",
-      "TYPE": "Comb",
-      "CARBON_EMISSIONS": 22,
-      "MARKET_PRICE": 400,
-      "CATEGORIES": "personal-care",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Disposable razors",
-      "TYPE": "Blade",
-      "CARBON_EMISSIONS": 80,
-      "MARKET_PRICE": 150,
-      "CATEGORIES": "personal-care",
-      "QUANTITY": "",
-      "MERIC": ""
-    },
-    {
-      "NAME": "Reusable razors",
-      "TYPE": "Blade",
-      "CARBON_EMISSIONS": 12,
-      "MARKET_PRICE": 999,
-      "CATEGORIES": "personal-care",
-      "QUANTITY": "",
-      "MERIC": ""
-    }
-  ]
+  {
+    "NAME": "Imported rice",
+    "TYPE": "Rice",
+    "CARBON_EMISSIONS": 150000,
+    "MARKET_PRICE": 96000,
+    "CATEGORIES": "foodstuff",
+    "QUANTITY": 50,
+    "METRIC": "Kilograms",
+    "IMPACT_LEVEL_RATING": "High",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541335/Imported_rice_50kg_cfkez5.jpg"
+  },
+  {
+    "NAME": "Sachet water",
+    "TYPE": "Water",
+    "CARBON_EMISSIONS": 550,
+    "MARKET_PRICE": 500,
+    "CATEGORIES": "foodstuff",
+    "QUANTITY": 50,
+    "METRIC": "Centiliters",
+    "IMPACT_LEVEL_RATING": "Medium",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541333/satchet_water_jntgpf.jpg"
+  },
+  {
+    "NAME": "Canned corn",
+    "TYPE": "Corn",
+    "CARBON_EMISSIONS": 160,
+    "MARKET_PRICE": 5500,
+    "CATEGORIES": "foodstuff",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541332/canned_corn_dwlzmv.webp"
+  },
+  {
+    "NAME": "Local Nigerian Rice",
+    "TYPE": "Rice",
+    "CARBON_EMISSIONS": 150000,
+    "MARKET_PRICE": 156000,
+    "CATEGORIES": "foodstuff",
+    "QUANTITY": 100,
+    "METRIC": "Kilograms",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541334/Local_Nigerian_Rice_ukwoob.jpg"
+  },
+  {
+    "NAME": "Plastic Bottle Water",
+    "TYPE": "Water",
+    "CARBON_EMISSIONS": 5000,
+    "MARKET_PRICE": 200,
+    "CATEGORIES": "foodstuff",
+    "QUANTITY": 500,
+    "METRIC": "Mililiters",
+    "IMPACT_LEVEL_RATING": "Medium",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541332/bottle_water_kcqomh.jpg"
+  },
+  {
+    "NAME": "Fresh Corn",
+    "TYPE": "Corn",
+    "CARBON_EMISSIONS": 85,
+    "MARKET_PRICE": 460,
+    "CATEGORIES": "foodstuff",
+    "QUANTITY": 1,
+    "METRIC": "Kilograms",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541334/fresh_corn_ngi4xr.jpg"
+  },
+  {
+    "NAME": "Aluminum foil for wrapping food",
+    "TYPE": "Aluminium",
+    "CARBON_EMISSIONS": 3180,
+    "MARKET_PRICE": 2646,
+    "CATEGORIES": "household",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Medium",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541331/aluminium_foil_drqmwh.jpg"
+  },
+  {
+    "NAME": "Shopping Tote bags",
+    "TYPE": "Bag",
+    "CARBON_EMISSIONS": 175,
+    "MARKET_PRICE": 1500,
+    "CATEGORIES": "household",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541333/Cloth_shopping_bags_nydq8p.jpg"
+  },
+  {
+    "NAME": "Plastic shopping bags (Nylons)",
+    "TYPE": "Bag",
+    "CARBON_EMISSIONS": 275,
+    "MARKET_PRICE": 200,
+    "CATEGORIES": "household",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541335/Plastic-Nylon-Bag-Printing_mroqyq.jpg"
+  },
+  {
+    "NAME": "Single-use batteries",
+    "TYPE": "Battery",
+    "CARBON_EMISSIONS": 20,
+    "MARKET_PRICE": 3000,
+    "CATEGORIES": "electronics",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541331/battery_kyfoid.jpg"
+  },
+  {
+    "NAME": "Rechargeable batteries",
+    "TYPE": "Battery",
+    "CARBON_EMISSIONS": 0.4,
+    "MARKET_PRICE": 5500,
+    "CATEGORIES": "electronics",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541335/Rechargeable_batteries_txd69v.jpg"
+  },
+  {
+    "NAME": "locally-produced Shea butter in jars",
+    "TYPE": "Cream",
+    "CARBON_EMISSIONS": 90,
+    "MARKET_PRICE": 1200,
+    "CATEGORIES": "personal-care",
+    "QUANTITY": 180,
+    "METRIC": "Grams",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541332/shea_butter_hqobll.jpg"
+  },
+  {
+    "NAME": "plastic-packaged imported hair cream",
+    "TYPE": "Cream",
+    "CARBON_EMISSIONS": 170,
+    "MARKET_PRICE": 2500,
+    "CATEGORIES": "personal-care",
+    "QUANTITY": 180,
+    "METRIC": "Grams",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541333/hair_cream_cemie6.webp"
+  },
+  {
+    "NAME": "Solar-powered power banks (20,000mmAh)",
+    "TYPE": "Power-Banks",
+    "CARBON_EMISSIONS": 2300,
+    "MARKET_PRICE": 25900,
+    "CATEGORIES": "electronics",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Medium",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541333/Solar-powered_power_banks_20_000mmAh_nl1k9k.jpg"
+  },
+  {
+    "NAME": "Cheap power banks (20,000mmAh)",
+    "TYPE": "Power-Banks",
+    "CARBON_EMISSIONS": 4000,
+    "MARKET_PRICE": 16000,
+    "CATEGORIES": "electronics",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Medium",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541332/Cheap_power_banks_20_000mmAh_f6wkry.jpg"
+  },
+  {
+    "NAME": "Disposable cleaning wipes",
+    "TYPE": "Wipes",
+    "CARBON_EMISSIONS": 2,
+    "MARKET_PRICE": 1200,
+    "CATEGORIES": "household",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541333/disposable_cleaning_wipes_ofbzsa.jpg"
+  },
+  {
+    "NAME": "Reusable Cleaning rags",
+    "TYPE": "Cloth",
+    "CARBON_EMISSIONS": 2000,
+    "MARKET_PRICE": 500,
+    "CATEGORIES": "household",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Medium",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541332/Reusable_Cleaning_rags_t3ygq3.jpg"
+  },
+  {
+    "NAME": "Plastic comb",
+    "TYPE": "Comb",
+    "CARBON_EMISSIONS": 150,
+    "MARKET_PRICE": 700,
+    "CATEGORIES": "personal-care",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541334/Plastic_comb_rw5j9f.avif"
+  },
+  {
+    "NAME": "Wooden comb or brush",
+    "TYPE": "Comb",
+    "CARBON_EMISSIONS": 22,
+    "MARKET_PRICE": 400,
+    "CATEGORIES": "personal-care",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541334/Wooden_comb_or_brush_lx1vjj.jpg"
+  },
+  {
+    "NAME": "Disposable razors",
+    "TYPE": "Blade",
+    "CARBON_EMISSIONS": 80,
+    "MARKET_PRICE": 150,
+    "CATEGORIES": "personal-care",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541332/reusable_razor_bpgtct.avif"
+  },
+  {
+    "NAME": "Reusable razors",
+    "TYPE": "Blade",
+    "CARBON_EMISSIONS": 12,
+    "MARKET_PRICE": 999,
+    "CATEGORIES": "personal-care",
+    "QUANTITY": "",
+    "METRIC": "",
+    "IMPACT_LEVEL_RATING": "Low",
+    "THUMBNAIL": "https://res.cloudinary.com/indexter12/image/upload/v1738541332/reusable_razor_bpgtct.avif"
+  }
+]
