@@ -16,7 +16,7 @@ export 'services/services.dart';
 export 'utils/constants.dart';
 export 'utils/enums.dart';
 export 'utils/error_logger.dart';
-export 'utils/extensions.dart';
+export 'utils/extensions/general_extensions.dart';
 export 'utils/svg_utils.dart';
 export 'utils/typedefs.dart';
 export 'utils/utils.dart';

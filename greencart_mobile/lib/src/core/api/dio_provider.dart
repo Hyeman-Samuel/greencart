@@ -13,25 +13,24 @@ part 'dio_provider.g.dart';
 Dio dio(Ref ref) {
   final talker = ref.watch(talkerLoggerProvider);
   final Dio dio = Dio(
-    BaseOptions(
-      baseUrl: Env.baseUrl,
-      connectTimeout: Duration(seconds: 30),
-      receiveTimeout: Duration(seconds: 30),
-      sendTimeout: Duration(seconds: 30),
-    ),
-  )..interceptors.addAll(
-      [
-        ref.watch(authInterceptorProvider),
-        if (kDebugMode)
-          TalkerDioLogger(
-            talker: talker,
-            settings: const TalkerDioLoggerSettings(
-              printRequestHeaders: true,
-              printResponseHeaders: true,
-            ),
+      BaseOptions(
+        baseUrl: Env.baseUrl,
+        connectTimeout: Duration(seconds: 60),
+        receiveTimeout: Duration(seconds: 60),
+        sendTimeout: Duration(seconds: 60),
+      ),
+    )
+    ..interceptors.addAll([
+      ref.watch(authInterceptorProvider),
+      if (kDebugMode)
+        TalkerDioLogger(
+          talker: talker,
+          settings: const TalkerDioLoggerSettings(
+            printRequestHeaders: true,
+            printResponseHeaders: true,
           ),
-      ],
-    );
+        ),
+    ]);
   dio.addSentry();
   return dio;
 }

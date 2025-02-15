@@ -5,8 +5,8 @@ import 'package:iconsax_plus/iconsax_plus.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
-    required this.body,
     required this.scrollable,
+    required this.body,
     this.title,
     super.key,
     this.drawer,
@@ -31,6 +31,8 @@ class AppScaffold extends StatelessWidget {
     this.resizeToAvoidInsets,
     this.floatingActionButtonLocation,
     this.backgroundColor,
+    this.useBackgroundImage,
+    this.backgroundImage,
   });
   final Widget? drawer;
   final Widget? bottomNavigationBar;
@@ -57,58 +59,80 @@ class AppScaffold extends StatelessWidget {
   final VoidCallback? appBarLeadingCallback;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   final Color? backgroundColor;
-
+  final bool? useBackgroundImage;
+  final ImageProvider<Object>? backgroundImage;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      drawerEnableOpenDragGesture: true,
-      key: scaffoldKey,
-      appBar: showAppBar
-          ? AppBar(
-              leading: appBarLeadingWidget ??
-                  InkWell(
-                    onTap: appBarLeadingCallback ??
-                        () => context.router.popForced(),
-                    child: Icon(IconsaxPlusLinear.arrow_left_1),
-                  ),
-              centerTitle: appBarTitleWidget == null,
-              title: title != null
-                  ? Text(
-                      title!,
-                      style: context.appTextTheme.mediumTextRegular.copyWith(
-                        color: AppColors.gray1,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  : appBarTitleWidget,
-              actions: appBarActions,
-            )
-          : null,
-      resizeToAvoidBottomInset: resizeToAvoidInsets,
-      body: SafeArea(
-        top: safeAreaTop ?? true,
-        bottom: safeAreaBottom ?? true,
-        child: scrollable
-            ? SingleChildScrollView(
-                controller: controller,
-                physics: scrollPhysics,
-                child: Padding(
-                  padding: padding ??
-                      Sizes.p24.hPadding +
-                          (showAppBar ? Sizes.p0.tPadding : Sizes.p24.tPadding),
-                  child: body,
+    return Container(
+      decoration:
+          useBackgroundImage == true
+              ? BoxDecoration(
+                image: DecorationImage(
+                  image: backgroundImage!,
+                  fit: BoxFit.cover,
                 ),
               )
-            : Padding(
-                padding: padding ?? Sizes.p24.hPadding,
-                child: body,
-              ),
+              : null,
+      child: Scaffold(
+        backgroundColor:
+            useBackgroundImage == true ? Colors.transparent : backgroundColor,
+        drawerEnableOpenDragGesture: true,
+        key: scaffoldKey,
+        appBar:
+            showAppBar
+                ? AppBar(
+                  leading:
+                      appBarLeadingWidget ??
+                      InkWell(
+                        onTap:
+                            appBarLeadingCallback ??
+                            () => context.router.popForced(),
+                        child: Icon(IconsaxPlusLinear.arrow_left_1),
+                      ),
+                  centerTitle: appBarTitleWidget == null,
+                  title:
+                      title != null
+                          ? Text(
+                            title!,
+                            style: context.appTextTheme.mediumTextRegular
+                                .copyWith(
+                                  color: AppColors.gray1,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          )
+                          : appBarTitleWidget,
+                  actions: appBarActions,
+                )
+                : null,
+        resizeToAvoidBottomInset: resizeToAvoidInsets,
+        body: SafeArea(
+          top: safeAreaTop ?? true,
+          bottom: safeAreaBottom ?? true,
+          child:
+              scrollable
+                  ? SingleChildScrollView(
+                    controller: controller,
+                    physics: scrollPhysics,
+                    child: Padding(
+                      padding:
+                          padding ??
+                          Sizes.p16.hPadding +
+                              (showAppBar
+                                  ? Sizes.p0.tPadding
+                                  : Sizes.p16.tPadding),
+                      child: body,
+                    ),
+                  )
+                  : Padding(
+                    padding: padding ?? Sizes.p16.hPadding,
+                    child: body,
+                  ),
+        ),
+        drawer: drawer,
+        bottomNavigationBar: bottomNavigationBar,
+        floatingActionButton: floatingActionButton,
+        floatingActionButtonLocation: floatingActionButtonLocation,
       ),
-      drawer: drawer,
-      bottomNavigationBar: bottomNavigationBar,
-      floatingActionButton: floatingActionButton,
-      floatingActionButtonLocation: floatingActionButtonLocation,
     );
   }
 }

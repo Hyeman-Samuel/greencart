@@ -17,7 +17,9 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1400));
+      vsync: this,
+      duration: const Duration(milliseconds: 1400),
+    );
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
     _controller.repeat();
 
@@ -36,8 +38,8 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
       height: 140,
       width: 160,
       decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(16),
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
         child: AnimatedBuilder(
@@ -45,9 +47,7 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
           builder: (context, c) {
             return Transform.rotate(
               angle: -math.pi * 2 * _animation.value,
-              child: CustomPaint(
-                painter: _RotatingArcPainter(),
-              ),
+              child: CustomPaint(painter: _RotatingArcPainter()),
             );
           },
         ),
@@ -63,14 +63,17 @@ class _RotatingArcPainter extends CustomPainter {
     final height = size.height;
     final centerOffset = Offset(width * 0.5, height * 0.5);
     canvas.translate(centerOffset.dx, centerOffset.dy);
-    final outerDashPaint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.square
-      ..shader = SweepGradient(colors: [
-        AppColors.primary,
-        AppColors.primary.withValues(alpha: 0.001),
-      ]).createShader(Rect.fromCircle(center: centerOffset, radius: 5))
-      ..strokeWidth = 4;
+    final outerDashPaint =
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeCap = StrokeCap.square
+          ..shader = SweepGradient(
+            colors: [
+              AppColors.primary,
+              AppColors.primary.withValues(alpha: 0.001),
+            ],
+          ).createShader(Rect.fromCircle(center: centerOffset, radius: 5))
+          ..strokeWidth = 4;
 
     canvas.drawArc(
       Rect.fromCircle(center: centerOffset, radius: 26),

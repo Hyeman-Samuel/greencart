@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color splashDarkBackground = Color(0xFF121212);
+  static const Color cardBackground = Color(0xFFF8F8F8);
+  static const Color lightGray = Color(0xFFEFEFF4);
+  static const Color mediumGray = Color(0xFF8E8E93);
   static const Color black = Color(0xFF000000);
   static const Color primary = Color(0xFF3A5C2D);
-  static const Color secondary = Color(0xFFD78821);
+  static const Color secondary = Color(0xFFF9F5FF);
   static const Color info = Color(0xFF2F80ED);
   static const Color success = Color(0xFF27AE60);
   static const Color warning = Color(0xFFE2B93B);
@@ -31,10 +34,13 @@ abstract class AppColors {
   static const Color gray10 = Color(0xFF95A5A6);
   static const Color gray11 = Color(0xFF71727A);
   static const Color gray12 = Color(0xFFD9D9D9);
+  static const Color gray25 = Color(0xFFFCFCFD);
   static const Color gray50 = Color(0xFFF9FAFB);
   static const Color gray200 = Color(0xFFEAECF0);
-  static const Color gray300 = Color(0xFF9CA3AF);
+  static const Color gray300 = Color.fromARGB(255, 1, 6, 16);
   static const Color gray400 = Color(0xFFC4C4C4);
   static const Color gray500 = Color(0xFF667085);
   static const Color gray600 = Color(0xFF6B7280);
+  static const Color gray700 = Color(0xFF98A2B3);
+  static const Color gridContainerBorder = Color(0xFFE2E2E2);
 }

@@ -17,10 +17,7 @@ abstract class LocalCache {
   Future<void> saveToCache({required String key, required dynamic value});
 
   ///Retrieves a cached value stored with `key`
-  T? getFromCache<T>(
-    String key, [
-    T Function(dynamic)? parser,
-  ]);
+  T? getFromCache<T>(String key, [T Function(dynamic)? parser]);
 
   ///Removes cached value stored with `key` from cache
   Future<void> removeFromCache(String key);
@@ -85,17 +82,15 @@ class LocalCacheImpl implements LocalCache {
         await _sharedPreferences.setString(key, json.encode(value));
         break;
       default:
-        logger
-            .error('LocalCache: Attempted to save unknown type to local cache');
+        logger.error(
+          'LocalCache: Attempted to save unknown type to local cache',
+        );
         break;
     }
   }
 
   @override
-  T? getFromCache<T>(
-    String key, [
-    T Function(dynamic)? parser,
-  ]) {
+  T? getFromCache<T>(String key, [T Function(dynamic)? parser]) {
     try {
       T? value;
       switch (T) {
