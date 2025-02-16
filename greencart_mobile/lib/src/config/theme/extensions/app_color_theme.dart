@@ -25,15 +25,23 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
 
   @override
   ThemeExtension<AppColorTheme> lerp(
-      covariant ThemeExtension<AppColorTheme>? other, double t) {
+    covariant ThemeExtension<AppColorTheme>? other,
+    double t,
+  ) {
     if (other is! AppColorTheme) {
       return this;
     }
     return AppColorTheme._internal(
-      backgroundDefault:
-          Color.lerp(backgroundDefault, other.backgroundDefault, t),
-      splashBackgroundColor:
-          Color.lerp(splashBackgroundColor, other.splashBackgroundColor, t),
+      backgroundDefault: Color.lerp(
+        backgroundDefault,
+        other.backgroundDefault,
+        t,
+      ),
+      splashBackgroundColor: Color.lerp(
+        splashBackgroundColor,
+        other.splashBackgroundColor,
+        t,
+      ),
     );
   }
 

@@ -1,20 +1,23 @@
+import 'package:greencart_app/src/features/authentication/domain/models/onboarding_data.dart';
+
 String? getFirstName(String? fullName) {
   return fullName?.split(" ").first;
 }
 
-// List<OnboardingData> kOnboardingData = [
-//   OnboardingData(
-//     illustration: GreenCartAssets.images.onboarding1.svg(),
-//     title: "Welcome to the OCDS Community".hardcoded,
-//     text:
-//         "Empowering students to discover career paths, connect with mentors, and develop essential skills for the future.\n"
-//             .hardcoded,
-//   ),
-//   OnboardingData(
-//     illustration: GreenCartAssets.images.onboarding2.svg(),
-//     title: "Find Opportunities &\n Events".hardcoded,
-//     text:
-//         "Participate in interactive workshops, webinars, and events designed to boost your knowledge and prepare you for the labor market."
-//             .hardcoded,
-//   )
-// ];
+List<OnboardingData> kOnboardingData = [
+  OnboardingData(
+    title: "Effortless Shopping, sustainable living!",
+    description:
+        "Organize your lists, cut down on waste, and make mindful purchases with GreenCart",
+  ),
+  OnboardingData(
+    title: "Shop smarter, waste less!",
+    description:
+        "Avoid unnecessary trips, track your essentials, and make eco-friendly choices with GreenCart",
+  ),
+  OnboardingData(
+    title: "Stay organized, and shop sustainably!",
+    description:
+        "Plan your grocery trips efficiently, reduce food waste, and make sustainable shopping a habit with GreenCart",
+  ),
+];

@@ -13,9 +13,7 @@ class AppThemeData {
         colorSchemeSeed: AppColors.primary,
         scaffoldBackgroundColor: appTheme.appColorTheme.backgroundDefault,
         extensions: [appTheme],
-        textTheme: TextTheme(
-          labelLarge: appTheme.appTextTheme.heading1,
-        ),
+        textTheme: TextTheme(labelLarge: appTheme.appTextTheme.heading1),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           type: BottomNavigationBarType.fixed,
           backgroundColor: appTheme.appColorTheme.backgroundDefault,
@@ -28,6 +26,18 @@ class AppThemeData {
           surfaceTintColor: Colors.transparent,
           shadowColor: Colors.transparent,
           centerTitle: true,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            shadowColor: Colors.transparent,
+            surfaceTintColor: Colors.transparent,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+        ),
+        progressIndicatorTheme: ProgressIndicatorThemeData(
+          color: AppColors.primary,
         ),
       );
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:greencart_app/src/core/core.dart';
@@ -10,21 +11,23 @@ part 'provider_registry.g.dart';
 
 Talker talkerFlutter = TalkerFlutter.init(
   settings: TalkerSettings(
+    useConsoleLogs: !kReleaseMode,
+    enabled: !kReleaseMode,
     colors: {
       TalkerLogType.httpResponse.key: AnsiPen()..green(),
       TalkerLogType.route.key: AnsiPen()..cyan(),
       TalkerLogType.error.key: AnsiPen()..red(),
       TalkerLogType.debug.key: AnsiPen()..yellow(),
-      TalkerLogType.info.key: AnsiPen()
-        ..rgb(r: 100 / 255, g: 181 / 255, b: 246 / 255),
-      TalkerLogType.riverpodAdd.key: AnsiPen()
-        ..rgb(r: 76 / 255, g: 175 / 255, b: 80 / 255),
-      TalkerLogType.riverpodUpdate.key: AnsiPen()
-        ..rgb(r: 33 / 255, g: 150 / 255, b: 243 / 255),
-      TalkerLogType.riverpodFail.key: AnsiPen()
-        ..rgb(r: 244 / 255, g: 67 / 255, b: 54 / 255),
-      TalkerLogType.riverpodDispose.key: AnsiPen()
-        ..rgb(r: 255 / 255, g: 152 / 255, b: 0 / 255),
+      TalkerLogType.info.key:
+          AnsiPen()..rgb(r: 100 / 255, g: 181 / 255, b: 246 / 255),
+      TalkerLogType.riverpodAdd.key:
+          AnsiPen()..rgb(r: 76 / 255, g: 175 / 255, b: 80 / 255),
+      TalkerLogType.riverpodUpdate.key:
+          AnsiPen()..rgb(r: 33 / 255, g: 150 / 255, b: 243 / 255),
+      TalkerLogType.riverpodFail.key:
+          AnsiPen()..rgb(r: 244 / 255, g: 67 / 255, b: 54 / 255),
+      TalkerLogType.riverpodDispose.key:
+          AnsiPen()..rgb(r: 255 / 255, g: 152 / 255, b: 0 / 255),
     },
   ),
 );
@@ -66,10 +69,7 @@ Future<void> appStartup(Ref ref) async {
 SecureStorage secureStorage(Ref ref) {
   final secureStorage = ref.watch(flutterSecureStorageProvider);
   final logger = ref.watch(talkerLoggerProvider);
-  return SecureStorageImpl(
-    storage: secureStorage,
-    logger: logger,
-  );
+  return SecureStorageImpl(storage: secureStorage, logger: logger);
 }
 
 @riverpod

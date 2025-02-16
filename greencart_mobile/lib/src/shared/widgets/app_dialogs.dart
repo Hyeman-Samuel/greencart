@@ -18,49 +18,53 @@ class AppDialogs {
     return showDialog(
       context: context,
       barrierDismissible: true,
-      builder: (context) => AlertDialog.adaptive(
-        backgroundColor: AppColors.white,
-        surfaceTintColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        title: Text(title ?? 'An Error Occurred'),
-        content: content != null ? Text(content) : null,
-        actions: kIsWeb || !Platform.isIOS
-            ? <Widget>[
-                if (cancelActionText != null)
-                  InkWell(
-                    onTap: () => Navigator.of(context).pop(false),
-                    child: Text(cancelActionText),
-                  ),
-                Sizes.p4.hGap,
-                TextButton(
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(60, 32),
-                    elevation: 0,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop(true);
-                    onDefaultAction?.call();
-                  },
-                  child: Text(defaultActionText),
-                ),
-              ]
-            : <Widget>[
-                if (cancelActionText != null)
-                  CupertinoDialogAction(
-                    onPressed: () => Navigator.of(context).pop(false),
-                    child: Text(cancelActionText),
-                  ),
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.of(context).pop(true);
-                    onDefaultAction?.call();
-                  },
-                  child: Text(defaultActionText),
-                ),
-              ],
-      ),
+      builder:
+          (context) => AlertDialog.adaptive(
+            backgroundColor: AppColors.white,
+            surfaceTintColor: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            title: Text(title ?? 'An Error Occurred'),
+            content: content != null ? Text(content) : null,
+            actions:
+                kIsWeb || !Platform.isIOS
+                    ? <Widget>[
+                      if (cancelActionText != null)
+                        InkWell(
+                          onTap: () => Navigator.of(context).pop(false),
+                          child: Text(cancelActionText),
+                        ),
+                      Sizes.p4.hGap,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(60, 32),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop(true);
+                          onDefaultAction?.call();
+                        },
+                        child: Text(
+                          defaultActionText,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                    ]
+                    : <Widget>[
+                      if (cancelActionText != null)
+                        CupertinoDialogAction(
+                          onPressed: () => Navigator.of(context).pop(false),
+                          child: Text(cancelActionText),
+                        ),
+                      CupertinoDialogAction(
+                        onPressed: () {
+                          Navigator.of(context).pop(true);
+                          onDefaultAction?.call();
+                        },
+                        child: Text(defaultActionText),
+                      ),
+                    ],
+          ),
     );
   }
 
@@ -72,9 +76,7 @@ class AppDialogs {
     return showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (context) => const Center(
-        child: LoadingIndicator(),
-      ),
+      builder: (context) => const Center(child: LoadingIndicator()),
     );
   }
 }

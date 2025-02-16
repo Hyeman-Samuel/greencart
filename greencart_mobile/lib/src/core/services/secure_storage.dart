@@ -7,20 +7,14 @@ abstract class SecureStorage {
   Future<String?> read(String key);
 
   ///Writes [value] to storage with [key].
-  Future<void> write({
-    required String key,
-    required String value,
-  });
+  Future<void> write({required String key, required String value});
 
   ///Deletes a value saved with [key] from storage
   Future<bool> delete(String key);
 }
 
 class SecureStorageImpl implements SecureStorage {
-  SecureStorageImpl({
-    FlutterSecureStorage? storage,
-    required this.logger,
-  }) {
+  SecureStorageImpl({FlutterSecureStorage? storage, required this.logger}) {
     _storage = storage ?? const FlutterSecureStorage();
   }
 

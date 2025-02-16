@@ -13,7 +13,7 @@ base class AppException implements Exception {
       if (error.statusCode! >= 500) {
         return const ClientException(
           message:
-              'We encountered a problem reaching the server. Please try again',
+              'We encountered a problem reaching the server. Please try again.',
         );
       }
 

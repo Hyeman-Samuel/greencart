@@ -12,7 +12,9 @@ class AuthInterceptor extends Interceptor {
 
   @override
   void onRequest(
-      RequestOptions options, RequestInterceptorHandler handler) async {
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
     final String token = await localCache.getToken();
     if (token != '') {
       options.headers['Authorization'] = 'Bearer $token';

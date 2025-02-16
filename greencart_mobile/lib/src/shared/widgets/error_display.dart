@@ -32,13 +32,21 @@ class ErrorDisplay extends StatelessWidget {
             ),
           ),
           Sizes.p16.vGap,
-          TextButton.icon(
+          ElevatedButton.icon(
             onPressed: onRetry,
-            label: Text(actionText),
-            icon: Icon(
-              IconsaxPlusLinear.refresh_2,
-              color: AppColors.white,
+            label: Text(
+              actionText,
+              style: context.appTextTheme.smallTextRegular,
             ),
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(
+                horizontal: padding,
+                vertical: padding / 2,
+              ),
+              backgroundColor: AppColors.primary.withValues(alpha: 0.8),
+              foregroundColor: AppColors.white,
+            ),
+            icon: Icon(IconsaxPlusLinear.refresh_2, color: AppColors.white),
           ),
         ],
       ),

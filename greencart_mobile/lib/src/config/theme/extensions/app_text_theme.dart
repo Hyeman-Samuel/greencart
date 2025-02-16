@@ -40,92 +40,68 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
   });
 
   factory AppTextTheme.main() => const AppTextTheme._internal(
-        heading1: TextStyle(
-          fontSize: 56,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        heading2: TextStyle(
-          fontSize: 48,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        heading3: TextStyle(
-          fontSize: 40,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        heading4: TextStyle(
-          fontSize: 32,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        heading5: TextStyle(
-          fontSize: 24,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        heading6: TextStyle(
-          fontSize: 20,
-          height: 1.2,
-          fontWeight: FontWeight.w600,
-        ),
-        largeTextBold: TextStyle(
-          fontSize: 20,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        largeTextRegular: TextStyle(
-          fontSize: 20,
-          height: 1.2,
-          fontWeight: FontWeight.w400,
-        ),
-        mediumTextBold: TextStyle(
-          fontSize: 18,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        mediumTextRegular: TextStyle(
-          fontSize: 18,
-          height: 1.2,
-          fontWeight: FontWeight.w400,
-        ),
-        normalTextBold: TextStyle(
-          fontSize: 16,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        normalTextRegular: TextStyle(
-          fontSize: 16,
-          height: 1.2,
-          fontWeight: FontWeight.w400,
-        ),
-        smallTextBold: TextStyle(
-          fontSize: 14,
-          height: 1.2,
-          fontWeight: FontWeight.w700,
-        ),
-        smallTextRegular: TextStyle(
-          fontSize: 14,
-          height: 1.2,
-          fontWeight: FontWeight.w400,
-        ),
-        bottomNavBarIconText: TextStyle(
-          fontSize: 10,
-          height: 1.2,
-          fontWeight: FontWeight.w600,
-        ),
-        buttonSmall: TextStyle(
-          fontSize: 10,
-          height: 1.2,
-          fontWeight: FontWeight.w500,
-        ),
-        buttonLarge: TextStyle(
-          fontSize: 16,
-          height: 1.2,
-          fontWeight: FontWeight.w500,
-        ),
-      );
+    heading1: TextStyle(fontSize: 56, height: 1.2, fontWeight: FontWeight.w700),
+    heading2: TextStyle(fontSize: 48, height: 1.2, fontWeight: FontWeight.w700),
+    heading3: TextStyle(fontSize: 40, height: 1.2, fontWeight: FontWeight.w700),
+    heading4: TextStyle(fontSize: 32, height: 1.2, fontWeight: FontWeight.w700),
+    heading5: TextStyle(fontSize: 24, height: 1.2, fontWeight: FontWeight.w700),
+    heading6: TextStyle(fontSize: 20, height: 1.2, fontWeight: FontWeight.w600),
+    largeTextBold: TextStyle(
+      fontSize: 20,
+      height: 1.2,
+      fontWeight: FontWeight.w700,
+    ),
+    largeTextRegular: TextStyle(
+      fontSize: 20,
+      height: 1.2,
+      fontWeight: FontWeight.w400,
+    ),
+    mediumTextBold: TextStyle(
+      fontSize: 18,
+      height: 1.2,
+      fontWeight: FontWeight.w700,
+    ),
+    mediumTextRegular: TextStyle(
+      fontSize: 18,
+      height: 1.2,
+      fontWeight: FontWeight.w400,
+    ),
+    normalTextBold: TextStyle(
+      fontSize: 16,
+      height: 1.2,
+      fontWeight: FontWeight.w700,
+    ),
+    normalTextRegular: TextStyle(
+      fontSize: 16,
+      height: 1.2,
+      fontWeight: FontWeight.w400,
+    ),
+    smallTextBold: TextStyle(
+      fontSize: 14,
+      height: 1.2,
+      fontWeight: FontWeight.w700,
+    ),
+    smallTextRegular: TextStyle(
+      fontSize: 14,
+      height: 1.2,
+      fontWeight: FontWeight.w400,
+    ),
+    bottomNavBarIconText: TextStyle(
+      fontSize: 10,
+      height: 1.2,
+      fontWeight: FontWeight.w600,
+    ),
+    buttonSmall: TextStyle(
+      fontSize: 10,
+      height: 1.2,
+      fontWeight: FontWeight.w500,
+    ),
+    buttonLarge: TextStyle(
+      fontSize: 16,
+      height: 1.2,
+      fontWeight: FontWeight.w500,
+    ),
+  );
 
   @override
   ThemeExtension<AppTextTheme> copyWith() {
@@ -152,8 +128,9 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
 
   @override
   ThemeExtension<AppTextTheme> lerp(
-          covariant ThemeExtension<AppTextTheme>? other, double t) =>
-      this;
+    covariant ThemeExtension<AppTextTheme>? other,
+    double t,
+  ) => this;
 
   @override
   bool operator ==(covariant AppTextTheme other) {

@@ -29,7 +29,7 @@ sealed class Result<S, F> {
   ///  return success(a ~/ b);
   /// }
   /// final result = divide(2, 1); // returns success(2)
-  /// print(result.isRight); // prints true
+  /// print(result.isSuccess); // prints true
   /// ```
   bool get isSuccess => this is Success<S, F>;
 
@@ -37,7 +37,7 @@ sealed class Result<S, F> {
   /// {@macro divideFunction}
   /// ```dart
   /// final result = divide(2, 0); // returns failure('Cannot divide by zero')
-  /// print(result.isLeft); // prints true
+  /// print(result.isFailure); // prints true
   /// ```
   bool get isFailure => this is Failure<S, F>;
 
@@ -52,29 +52,33 @@ sealed class Result<S, F> {
   /// ```
   B fold<B>(B Function(S s) ifSuccess, B Function(F f) ifFailure);
 
-  /// Get [success] value. May throw an exception when the value is [success]
-  /// {@macro divideFunction}
-  /// ```dart
-  /// final result = divide(2, 0);
-  /// print(result.left); // throws an exception
-  /// ```
-  S get successValue => this.fold<S>(
-        (s) => s,
-        (f) => throw Exception(
-            'Illegal use. You should check isRight before calling'),
-      );
-
-  /// Get [failure] value. May throw an exception when the value is [failure]
+  /// Get [success] value. May throw an exception when the value is [failure]
   /// {@macro divideFunction}
   /// ```dart
   /// final result = divide(2, 1);
-  /// print(result.right); // prints 2
+  /// print(result.successValue); // prints 2
+  /// ```
+  S get successValue => this.fold<S>(
+    (s) => s,
+    (f) =>
+        throw Exception(
+          'Illegal use. You should check isSuccess before calling',
+        ),
+  );
+
+  /// Get [failure] value. May throw an exception when the value is [success]
+  /// {@macro divideFunction}
+  /// ```dart
+  /// final result = divide(2, 0);
+  /// print(result.falureValue); // throws an exception
   /// ```
   F get failureValue => this.fold<F>(
-        (s) => throw Exception(
-            'Illegal use. You should check isLeft before calling'),
-        (f) => f,
-      );
+    (s) =>
+        throw Exception(
+          'Illegal use. You should check isFailure before calling',
+        ),
+    (f) => f,
+  );
 
   /// This function applies a transformation to the success value of a Result,
   /// and returns a new Result that contains the transformed value. If the original Result
@@ -83,7 +87,7 @@ sealed class Result<S, F> {
   /// {@macro divideFunction}
   /// ```dart
   /// final result = divide(4, 2).map((r) => r * 2);
-  /// print(result.right); // prints 4
+  /// print(result.successValue); // prints 4
   /// ```
   Result<S2, F> map<S2>(S2 Function(S s) f) =>
       fold((S s) => success(f(s)), failure);
@@ -93,7 +97,7 @@ sealed class Result<S, F> {
   /// {@macro divideFunction}
   /// ```dart
   /// final result = divide(4, 2).flatMap((r) => divide(r, 0));
-  /// print(result.left); // prints 'Cannot divide by zero'
+  /// print(result.falureValue); // prints 'Cannot divide by zero'
   /// ```
   Result<S2, F> flatMap<S2>(Result<S2, F> Function(S s) f) => fold(f, failure);
 
@@ -116,8 +120,7 @@ sealed class Result<S, F> {
   /// ```
   Future<Result<S2, F>> asyncFlatMap<S2>(
     Future<Result<S2, F>> Function(S s) f,
-  ) =>
-      fold(f, (error) => Future.value(failure(error)));
+  ) => fold(f, (error) => Future.value(failure(error)));
 
   /// Similar to map, but doesn't return a new Result. Instead, it simply applies
   /// a function for its side effects and returns nothing. If the Result is an error,
@@ -175,15 +178,11 @@ sealed class Result<S, F> {
           return failure(
             const ClientException(
               message:
-                  'Error establishing a connection to the server. Please try again',
+                  'Error establishing a connection to the server. Please try again.',
             ),
           );
         case _:
-          return failure(
-            ClientException(
-              message: exception.toString(),
-            ),
-          );
+          return failure(ClientException(message: exception.toString()));
       }
     } on Exception catch (e) {
       return failure(ClientException(message: e.toString()));
@@ -197,7 +196,7 @@ sealed class Result<S, F> {
   /// throws an exception, the Result is an error with the thrown exception.
   /// ```dart
   /// final result = Result.fromAction(() => 2);
-  /// print(result.right); // prints 2
+  /// print(result.successValue); // prints 2
   /// ```
   static Result<T, Exception> fromAction<T>(T Function() func) {
     try {
@@ -216,7 +215,7 @@ sealed class Result<S, F> {
   /// is an error.
   /// ```dart
   /// final result = Result.fromNullable(2, () => Exception('Value is null'));
-  /// print(result.right); // prints 2
+  /// print(result.successValue); // prints 2
   /// ```
   static Result<T, Exception> fromNullable<T>(
     T? value,
@@ -234,14 +233,13 @@ sealed class Result<S, F> {
   /// the Result is an error with a certain error.
   /// ```dart
   /// final result = Result.fromPredicate(2 > 1, () => 2, () => Exception('Condition is false'));
-  /// print(result.right); // prints 2
+  /// print(result.successValue); // prints 2
   /// ```
   static Result<T, Exception> fromPredicate<T>(
     bool condition,
     T Function() onSuccess,
     Exception Function() onError,
-  ) =>
-      condition ? success(onSuccess()) : failure(onError());
+  ) => condition ? success(onSuccess()) : failure(onError());
 }
 
 /// A container for Failure values
@@ -295,13 +293,13 @@ class Success<S, F> extends Result<S, F> {
 /// Helper function to create a [Failure]
 /// ```dart
 /// final result = failure('Something went wrong');
-/// print(result.isLeft); // prints true
+/// print(result.isFailure); // prints true
 /// ```
 Result<S, F> failure<S, F>(F f) => Failure._(f);
 
 /// Helper function to create a [Success]
 /// ```dart
 /// final result = success(2);
-/// print(result.isRight); // prints true
+/// print(result.isSuccess); // prints true
 /// ```
 Result<S, F> success<S, F>(S s) => Success._(s);

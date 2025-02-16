@@ -37,31 +37,29 @@ void main() async {
   );
 
   // Initialize Sentry
-  await SentryFlutter.init(
-    (options) {
-      options.dsn = Env.sentryDSN;
-      // Improve stack traces in the dashboard
-      options
-        ..considerInAppFramesByDefault = false
-        ..addInAppInclude('greencart_app');
-      options.beforeSend = (SentryEvent event, Hint hint) async {
-        container
-            .read(talkerLoggerProvider)
-            .debug("Sentry event: ${event.toJson()}");
-        // Ignore events that are not from release builds
-        if (!kReleaseMode) {
-          return null;
-        }
-        // If there was no response, it means that a connection error occurred. Do not log this to Sentry
-        final exception = event.throwable;
-        if (exception is DioException && exception.response == null) {
-          return null;
-        }
-        // For all other events, return the event as is
-        return event;
-      };
-    },
-  );
+  await SentryFlutter.init((options) {
+    options.dsn = Env.sentryDSN;
+    // Improve stack traces in the dashboard
+    options
+      ..considerInAppFramesByDefault = false
+      ..addInAppInclude('greencart_app');
+    options.beforeSend = (SentryEvent event, Hint hint) async {
+      container
+          .read(talkerLoggerProvider)
+          .debug("Sentry event: ${event.toJson()}");
+      // Ignore events that are not from release builds
+      if (!kReleaseMode) {
+        return null;
+      }
+      // If there was no response, it means that a connection error occurred. Do not log this to Sentry
+      final exception = event.throwable;
+      if (exception is DioException && exception.response == null) {
+        return null;
+      }
+      // For all other events, return the event as is
+      return event;
+    };
+  });
 
   await container.read(sharedPreferencesProvider.future);
 
