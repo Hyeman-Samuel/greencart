@@ -66,7 +66,7 @@ Future<FetchAlternativesResponse> fetchProductAlternatives(
 }
 
 @riverpod
-class AddProductController extends _$AddProductController {
+class ListProductsController extends _$ListProductsController {
   late final ListProuctsRepository _repository;
 
   @override
@@ -90,6 +90,29 @@ class AddProductController extends _$AddProductController {
       },
       (error) {
         AppToasts.error(longMessage: 'Error adding product. Please try again.');
+        ref.read(errorLoggerProvider).logException(error, StackTrace.current);
+        return AsyncError(error, StackTrace.current);
+      },
+    );
+  }
+
+  void deleteProduct({required String listId}) async {
+    state = AsyncLoading();
+
+    final result = await _repository.deleteProduct(
+      listId: listId,
+      productId: productId ?? '',
+    );
+
+    state = result.fold(
+      (data) {
+        ref.invalidate(fetchListProductsProvider);
+        AppToasts.success(message: "Product deleted!");
+        return AsyncData(data);
+      },
+      (error) {
+        AppToasts.error(
+            longMessage: 'Error deleting product. Please try again.');
         ref.read(errorLoggerProvider).logException(error, StackTrace.current);
         return AsyncError(error, StackTrace.current);
       },

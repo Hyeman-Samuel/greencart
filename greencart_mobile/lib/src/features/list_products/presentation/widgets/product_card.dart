@@ -89,13 +89,13 @@ class ProductCard extends ConsumerWidget {
             child: GestureDetector(
               onTap: () {
                 ref
-                    .read(addProductControllerProvider(product.id).notifier)
+                    .read(listProductsControllerProvider(product.id).notifier)
                     .addProduct(listId: listId);
               },
               child: Consumer(
                 builder: (context, ref, child) {
                   final state = ref.watch(
-                    addProductControllerProvider(product.id),
+                    listProductsControllerProvider(product.id),
                   );
                   return state.maybeWhen(
                     loading: () => SizedBox(
