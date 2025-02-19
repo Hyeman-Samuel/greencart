@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:greencart_app/src/config/navigation/app_router.gr.dart';
 import 'package:greencart_app/src/core/core.dart';
 import 'package:greencart_app/src/features/shopping_lists/presentation/controllers/shopping_lists_controller.dart';
@@ -91,15 +92,56 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         itemCount: data.list?.length,
                         itemBuilder: (context, index) {
                           final isLast = index == data.list!.length - 1;
-                          return ListCard(
-                            onTap: () => context.router.push(
-                              ListProductsScreenRoute(
-                                id: lists[index].id ?? '',
-                                listName: lists[index].title ?? '',
-                              ),
+                          return Slidable(
+                            endActionPane: ActionPane(
+                              motion: ScrollMotion(),
+                              children: [
+                                Sizes.p8.hGap,
+                                SlidableAction(
+                                  borderRadius: BorderRadius.circular(8),
+                                  flex: 2,
+                                  onPressed: (context) =>
+                                      AppDialogs.showAlertDialog(
+                                    context: context,
+                                    title: 'Coming soon!',
+                                    content:
+                                        'Thanks for expressing your interest in this feature.',
+                                  ),
+                                  backgroundColor: AppColors.info,
+                                  foregroundColor: Colors.white,
+                                  icon: Icons.print_rounded,
+                                ),
+                                Sizes.p8.hGap,
+                                Consumer(
+                                  builder: (context, ref, child) {
+                                    return SlidableAction(
+                                      borderRadius: BorderRadius.circular(8),
+                                      flex: 2,
+                                      onPressed: (context) => ref
+                                          .read(shoppingListsControllerProvider
+                                              .notifier)
+                                          .deleteList(
+                                            id: lists[index].id ?? '',
+                                            swipeToDelete: true,
+                                          ),
+                                      backgroundColor: AppColors.brightRed,
+                                      foregroundColor: Colors.white,
+                                      icon: Icons.delete_rounded,
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
-                            title: lists[index].title ?? '',
-                            isLastCard: isLast,
+                            child: ListCard(
+                              onTap: () => context.router.push(
+                                ListProductsScreenRoute(
+                                  id: lists[index].id ?? '',
+                                  listName: lists[index].title ?? '',
+                                ),
+                              ),
+                              title: lists[index].title ?? '',
+                              isLastCard: isLast,
+                            ),
                           );
                         },
                       ),

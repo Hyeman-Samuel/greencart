@@ -76,20 +76,19 @@ class AlternativesItemCard extends ConsumerWidget {
             child: GestureDetector(
               onTap: () {
                 ref
-                    .read(addProductControllerProvider(productId).notifier)
+                    .read(listProductsControllerProvider(productId).notifier)
                     .addProduct(listId: listId);
               },
               child: Consumer(
                 builder: (context, ref, child) {
                   final state = ref.watch(
-                    addProductControllerProvider(productId),
+                    listProductsControllerProvider(productId),
                   );
                   return state.maybeWhen(
                     loading: () => SizedBox(
                       width: 34,
                       height: 34,
-                      child: const CircularProgressIndicator.adaptive(
-                      ),
+                      child: const CircularProgressIndicator.adaptive(),
                     ),
                     orElse: () => Skeleton.leaf(
                       child: Container(

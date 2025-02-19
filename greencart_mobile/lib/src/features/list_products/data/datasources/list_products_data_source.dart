@@ -31,7 +31,7 @@ abstract class ListProductsDataSource {
     @Query('limit') int? limit,
   });
 
-  @GET('/v1/products/{id}/alternatives')
+  @GET('v1/products/{id}/alternatives')
   Future<FetchAlternativesResponse> getProductAlternatives({
     @Path('id') required String id,
     @Query('offset') int? offset,
@@ -40,6 +40,12 @@ abstract class ListProductsDataSource {
 
   @POST('v1/lists/{id}')
   Future<dynamic> addProduct({
+    @Path('id') required String id,
+    @Body() required Map<String, String> payload,
+  });
+
+  @DELETE('v1/lists/{id}')
+  Future<dynamic> deleteProduct({
     @Path('id') required String id,
     @Body() required Map<String, String> payload,
   });

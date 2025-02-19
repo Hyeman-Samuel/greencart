@@ -48,7 +48,7 @@ class _ListProductsScreenState extends ConsumerState<ListProductsScreen> {
             icon: Icon(Icons.delete),
             onPressed: () => ref
                 .read(shoppingListsControllerProvider.notifier)
-                .deleteList(widget.id),
+                .deleteList(id: widget.id),
           ),
       ],
       body: AdaptiveRefreshIdicator(
@@ -86,6 +86,8 @@ class _ListProductsScreenState extends ConsumerState<ListProductsScreen> {
                         final isLast = index == data.list!.length - 1;
                         return ListProductCard(
                           title: lists[index].product?.title ?? '',
+                          listId: widget.id,
+                          productId: lists[index].product?.id ?? '',
                           isLastCard: isLast,
                           onTap: () {},
                         );
@@ -101,7 +103,11 @@ class _ListProductsScreenState extends ConsumerState<ListProductsScreen> {
                         10,
                         (index) => Skeletonizer(
                           ignoreContainers: true,
-                          child: ListProductCard(title: 'Shimmer Title...'),
+                          child: ListProductCard(
+                            listId: '',
+                            productId: '',
+                            title: 'Shimmer Title...',
+                          ),
                         ),
                       ),
                     ),

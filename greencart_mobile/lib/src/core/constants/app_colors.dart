@@ -12,11 +12,12 @@ abstract class AppColors {
   static const Color info = Color(0xFF2F80ED);
   static const Color success = Color(0xFF27AE60);
   static const Color warning = Color(0xFFE2B93B);
-  static const Color error = Color(0xFFEB5757);
   static const Color red50 = Color(0xFFFEF2F2);
+  static const Color error = Color(0xFFEB5757);
   static const Color red400 = Color(0xFFF87171);
   static const Color red500 = Color(0xFFEF4444);
   static const Color red800 = Color(0xFF991B1B);
+  static const Color brightRed = Color(0xFFF43426);
   static const Color green1 = Color(0xFFD6F5E6);
   static const Color green2 = Color(0xFF15512E);
   static const Color green50 = Color(0xFFECFDF5);

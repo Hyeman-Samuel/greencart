@@ -34,10 +34,9 @@ class ShoppingListsRepository {
 
   FutureResultOf<FetchListProductsResponse> deleteList({
     required String id,
-    required CancelToken cancelToken,
   }) async {
     final response = await Result.fromAsync(
-      () => apiDataSource.deleteList(id: id, cancelToken: cancelToken),
+      () => apiDataSource.deleteList(id: id),
     );
     return response;
   }

@@ -28,15 +28,15 @@ class ShoppingListsController extends _$ShoppingListsController {
     ref.onDispose(() => _cancelToken.cancel());
   }
 
-  Future<void> deleteList(String id) async {
+  Future<void> deleteList(
+      {required String id, bool swipeToDelete = false}) async {
     state = AsyncLoading();
-    final result = await _shoppingListsRepository.deleteList(
-      id: id,
-      cancelToken: _cancelToken,
-    );
+    final result = await _shoppingListsRepository.deleteList(id: id);
     state = result.fold(
       (data) {
-        ref.read(appRouterProvider).popForced(true);
+        if (!swipeToDelete) {
+          ref.read(appRouterProvider).popForced();
+        }
         ref.invalidate(fetchAllListsProvider);
         AppToasts.success(message: "List deleted successfully!");
         return AsyncData(data);

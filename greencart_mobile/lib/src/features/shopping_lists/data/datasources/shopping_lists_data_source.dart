@@ -27,7 +27,6 @@ abstract class ShoppingListsDataSource {
   @DELETE('/v1/lists/{id}/delete')
   Future<FetchListProductsResponse> deleteList({
     @Path('id') required String id,
-    @CancelRequest() required CancelToken cancelToken,
   });
 }
 

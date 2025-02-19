@@ -62,6 +62,17 @@ class ListProuctsRepository {
     );
     return response;
   }
+
+  FutureResultOf<dynamic> deleteProduct({
+    required String listId,
+    required String productId,
+  }) async {
+    final response = await Result.fromAsync(
+      () => apiDataSource
+          .deleteProduct(id: listId, payload: {"product": productId}),
+    );
+    return response;
+  }
 }
 
 @riverpod
