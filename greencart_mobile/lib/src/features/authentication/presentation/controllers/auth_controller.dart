@@ -82,10 +82,12 @@ class AuthController extends _$AuthController {
   }
 
   void goToSignInScreen() {
-    ref.read(appRouterProvider).popAndPush(SignInScreenRoute());
+    ref.read(appRouterProvider).popForced(true);
+    ref.read(appRouterProvider).push(SignInScreenRoute());
   }
 
   void goToSignUpScreen() {
-    ref.read(appRouterProvider).popAndPush(SignUpScreenRoute());
+    ref.read(appRouterProvider).popForced(true);
+    ref.read(appRouterProvider).push(SignUpScreenRoute());
   }
 }
