@@ -7,7 +7,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'profile_screen_controller.g.dart';
 
-@Riverpod(keepAlive: true)
 Future<UserProfileResponse> fetchUserProfile(Ref ref) async {
   final cancelToken = CancelToken();
   ref.onDispose(() => cancelToken.cancel());
