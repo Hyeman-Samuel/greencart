@@ -1,3 +1,3 @@
 ## Demo video:
 
-https://github.com/Hyeman-Samuel/greencart/blob/chore/add-readme/showcase/demo_video.mp4
+https://drive.google.com/file/d/1hHBgUR1Tn4ApyjvKLR3-bClHQ_uIpp6w/view?usp=sharing
