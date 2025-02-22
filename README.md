@@ -1,6 +1,6 @@
 # GreenCart - Sustainable Shopping List App
 
-## Demo video:
+## Demo:
 
 https://github.com/user-attachments/assets/e305fa1a-3971-4082-a326-1f5c5e509581
 
