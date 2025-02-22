@@ -1,5 +1,3 @@
 ## Demo video:
 
-<video width="640" height="360" controls>
-    <source src="showcase/demo_video.mp4" type="video/mp4">
-</video>
+<video controls src="https://github.com/Hyeman-Samuel/greencart/blob/main/screenshots/demo_video.mp4" title="GreenCart Mobile App Demo"></video>
