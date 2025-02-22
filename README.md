@@ -1,5 +1,4 @@
 ## Demo video:
 
-<video width="640" height="360" controls>
-    <source src="screenshots/demo_video.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/e305fa1a-3971-4082-a326-1f5c5e509581
+
